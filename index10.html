@@ -1,0 +1,1243 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Happy Birthday 💙</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f0f7ff;
+        color: #2b4c7e;
+        overflow-x: hidden;
+      }
+
+      #loading {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(135deg, #b3d9ff, #e1f0ff, #f5f9ff);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        z-index: 99999;
+
+        transition:
+          opacity 1s ease,
+          visibility 1s ease;
+      }
+
+      #loading.hide {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .loading-heart {
+        font-size: 70px;
+
+        animation: heartbeat 1s infinite;
+
+        filter: drop-shadow(0 10px 20px rgba(40, 110, 210, 0.3));
+      }
+
+      .loading-title {
+        margin-top: 15px;
+
+        font-size: 24px;
+        font-weight: 700;
+
+        color: #3570c7;
+      }
+
+      .loading-subtitle {
+        margin-top: 8px;
+
+        font-size: 14px;
+        color: #4c76b7;
+      }
+
+      .loading-bar {
+        width: 250px;
+        height: 9px;
+
+        margin-top: 25px;
+
+        background: rgba(255, 255, 255, 0.7);
+
+        border-radius: 50px;
+
+        overflow: hidden;
+      }
+
+      .loading-progress {
+        width: 0%;
+        height: 100%;
+
+        background: linear-gradient(90deg, #4f91ef, #86b5ff);
+
+        animation: loading 3s forwards;
+
+        border-radius: 50px;
+      }
+
+      @keyframes loading {
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.25);
+        }
+      }
+
+      .main {
+        min-height: 100vh;
+
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 60px 20px;
+
+        background:
+          radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.9),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 80% 30%,
+            rgba(255, 255, 255, 0.8),
+            transparent 25%
+          ),
+          linear-gradient(135deg, #d2e4ff, #f1f7ff);
+      }
+
+      .main::before {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px);
+
+        background-size: 40px 40px;
+
+        opacity: 0.45;
+
+        pointer-events: none;
+      }
+
+      .card {
+        width: min(720px, 95%);
+
+        padding: 45px 30px 50px;
+
+        background: rgba(255, 255, 255, 0.75);
+
+        backdrop-filter: blur(15px);
+
+        border: 2px solid rgba(255, 255, 255, 0.8);
+
+        border-radius: 40px;
+
+        box-shadow: 0 30px 80px rgba(54, 105, 184, 0.18);
+
+        text-align: center;
+
+        position: relative;
+
+        z-index: 5;
+
+        animation: cardEnter 1.3s ease;
+      }
+
+      @keyframes cardEnter {
+        from {
+          opacity: 0;
+          transform: translateY(70px) scale(0.85);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .small-title {
+        color: #4d85d9;
+
+        font-size: 14px;
+
+        font-weight: 700;
+
+        letter-spacing: 4px;
+
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        font-family: Georgia, serif;
+
+        font-size: clamp(42px, 8vw, 72px);
+
+        color: #3775d1;
+
+        text-shadow: 0 6px 15px rgba(50, 110, 200, 0.18);
+      }
+
+      .subtitle {
+        margin-top: 10px;
+
+        font-size: 18px;
+
+        color: #4870a9;
+      }
+
+      .cake-area {
+        width: 100%;
+
+        height: 390px;
+
+        position: relative;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: flex-end;
+
+        margin-top: 15px;
+      }
+
+      .cake {
+        position: relative;
+
+        width: 380px;
+
+        height: 330px;
+
+        margin-bottom: 5px;
+      }
+
+      .cake-plate {
+        position: absolute;
+
+        left: 50%;
+
+        bottom: 8px;
+
+        transform: translateX(-50%);
+
+        width: 410px;
+
+        height: 38px;
+
+        border-radius: 50%;
+
+        background: linear-gradient(to bottom, #f8fbff, #b2d0ff);
+
+        box-shadow: 0 15px 25px rgba(47, 96, 167, 0.2);
+
+        z-index: 1;
+      }
+
+      .cake-plate::after {
+        content: "";
+
+        position: absolute;
+
+        left: 50%;
+        top: 8px;
+
+        transform: translateX(-50%);
+
+        width: 350px;
+        height: 16px;
+
+        border-radius: 50%;
+
+        background: #d9e8ff;
+      }
+
+      .cake-body {
+        position: absolute;
+
+        left: 50%;
+
+        bottom: 42px;
+
+        transform: translateX(-50%);
+
+        width: 330px;
+
+        height: 145px;
+
+        background: linear-gradient(90deg, #6da5f8, #9fc3ff, #6da5f8);
+
+        border-radius: 12px 12px 28px 28px;
+
+        box-shadow:
+          inset 0 -8px 15px rgba(45, 95, 180, 0.1),
+          0 15px 25px rgba(45, 95, 170, 0.2);
+
+        z-index: 3;
+      }
+
+      .cake-top {
+        position: absolute;
+
+        left: 50%;
+
+        bottom: 150px;
+
+        transform: translateX(-50%);
+
+        width: 350px;
+
+        height: 85px;
+
+        border-radius: 50%;
+
+        background: #8fbaff;
+
+        z-index: 6;
+
+        box-shadow: 0 5px 10px rgba(45, 95, 170, 0.12);
+      }
+
+      .cake-top::before {
+        content: "";
+
+        position: absolute;
+
+        left: 12px;
+        top: 10px;
+
+        width: 326px;
+        height: 60px;
+
+        border-radius: 50%;
+
+        background: #f5f9ff;
+      }
+
+      .cake-top::after {
+        content: "";
+
+        position: absolute;
+
+        left: 50px;
+        top: 22px;
+
+        width: 250px;
+        height: 38px;
+
+        border-radius: 50%;
+
+        background: #e1edff;
+      }
+
+      .cream {
+        position: absolute;
+
+        background: white;
+
+        border-radius: 0 0 20px 20px;
+
+        z-index: 9;
+      }
+
+      .cream.c1 {
+        width: 45px;
+        height: 35px;
+        left: 20px;
+        top: 4px;
+      }
+
+      .cream.c2 {
+        width: 48px;
+        height: 52px;
+        left: 75px;
+        top: 3px;
+      }
+
+      .cream.c3 {
+        width: 45px;
+        height: 30px;
+        left: 140px;
+        top: 4px;
+      }
+
+      .cream.c4 {
+        width: 50px;
+        height: 48px;
+        left: 205px;
+        top: 3px;
+      }
+
+      .cream.c5 {
+        width: 45px;
+        height: 35px;
+        right: 22px;
+        top: 4px;
+      }
+
+      .strawberry {
+        position: absolute;
+        z-index: 15;
+        font-size: 31px;
+        filter: drop-shadow(0 5px 5px rgba(30, 70, 130, 0.2));
+        animation: berryFloat 2.5s ease-in-out infinite;
+      }
+
+      .s1 {
+        left: 20px;
+        bottom: 215px;
+        animation-delay: 0s;
+      }
+
+      .s2 {
+        left: 85px;
+        bottom: 228px;
+        animation-delay: 0.2s;
+      }
+
+      .s3 {
+        right: 85px;
+        bottom: 228px;
+        animation-delay: 0.4s;
+      }
+
+      .s4 {
+        right: 20px;
+        bottom: 215px;
+        animation-delay: 0.6s;
+      }
+
+      @keyframes berryFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-3deg);
+        }
+        50% {
+          transform: translateY(-5px) rotate(3deg);
+        }
+      }
+
+      .candle {
+        position: absolute;
+        left: 50%;
+        bottom: 235px;
+        transform: translateX(-50%);
+        width: 24px;
+        height: 75px;
+        background: repeating-linear-gradient(
+          90deg,
+          #ffffff 0px,
+          #ffffff 8px,
+          #5c9dff 8px,
+          #5c9dff 16px
+        );
+
+        border-radius: 5px;
+
+        box-shadow: 0 4px 8px rgba(40, 90, 150, 0.2);
+
+        z-index: 50;
+      }
+
+      .candle::after {
+        content: "";
+
+        position: absolute;
+
+        width: 4px;
+        height: 9px;
+
+        left: 50%;
+        top: -8px;
+
+        transform: translateX(-50%);
+
+        background: #263343;
+
+        border-radius: 3px;
+      }
+
+      .flame {
+        position: absolute;
+        left: 50%;
+        top: -38px;
+        transform: translateX(-50%);
+        width: 22px;
+        height: 32px;
+        background: radial-gradient(
+          ellipse at center bottom,
+          #ffffff 0%,
+          #fff7a0 25%,
+          #ffd21c 50%,
+          #ff8a00 75%,
+          #ff5b00 100%
+        );
+
+        border-radius: 50% 50% 45% 45%;
+
+        box-shadow:
+          0 0 8px #ffd000,
+          0 0 18px #ffb000,
+          0 0 30px rgba(255, 150, 0, 0.55);
+
+        z-index: 51;
+
+        animation: flameStraight 0.3s infinite alternate;
+      }
+
+      @keyframes flameStraight {
+        0% {
+          transform: translateX(-50%) scale(1);
+        }
+
+        100% {
+          transform: translateX(-50%) scale(1.1);
+        }
+      }
+
+      button {
+        border: none;
+
+        padding: 16px 30px;
+
+        border-radius: 50px;
+
+        background: linear-gradient(135deg, #3f87e9, #78adff);
+
+        color: white;
+
+        font-size: 17px;
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+        box-shadow: 0 12px 25px rgba(55, 125, 220, 0.3);
+
+        transition: 0.3s;
+      }
+
+      button:hover {
+        transform: translateY(-5px) scale(1.03);
+
+        box-shadow: 0 18px 30px rgba(55, 125, 220, 0.4);
+      }
+
+      .music-button {
+        display: inline-block;
+        margin: 15px auto 0;
+        background: linear-gradient(135deg, #3f87e9, #78adff);
+      }
+
+      .music-button.playing {
+        background: linear-gradient(135deg, #3678d9, #5b98f4);
+      }
+
+      .button-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 15px;
+      }
+
+      .message {
+        max-height: 0;
+
+        overflow: hidden;
+
+        opacity: 0;
+
+        transition:
+          max-height 1s ease,
+          opacity 1s ease,
+          margin 1s ease;
+
+        font-family: Georgia, serif;
+
+        font-size: 20px;
+
+        line-height: 1.7;
+
+        color: #2f62a5;
+      }
+
+      .message.show {
+        max-height: 400px;
+
+        opacity: 1;
+
+        margin-top: 25px;
+      }
+
+      .gift-section {
+        padding: 100px 20px 80px;
+
+        text-align: center;
+
+        background: linear-gradient(180deg, #f0f6ff, #dce9ff);
+      }
+
+      .section-title {
+        font-family: Georgia, serif;
+
+        font-size: 38px;
+
+        color: #3976d0;
+
+        margin-bottom: 10px;
+      }
+
+      .section-subtitle {
+        color: #5076ad;
+
+        margin-bottom: 45px;
+      }
+
+      .gift {
+        width: 280px;
+
+        height: 230px;
+
+        margin: 0 auto 60px;
+
+        position: relative;
+
+        cursor: pointer;
+
+        transition: 0.4s;
+      }
+
+      .gift:hover {
+        transform: translateY(-10px) scale(1.03);
+      }
+
+      .gift-lid {
+        position: absolute;
+
+        left: 0;
+        top: 20px;
+
+        width: 280px;
+        height: 60px;
+
+        background: linear-gradient(90deg, #7fb0ff, #afd0ff, #7fb0ff);
+
+        border-radius: 10px;
+
+        z-index: 5;
+
+        transition: 0.8s;
+      }
+
+      .gift-box {
+        position: absolute;
+
+        left: 20px;
+        top: 65px;
+
+        width: 240px;
+        height: 150px;
+
+        background: linear-gradient(90deg, #6fa5ff, #9fc3ff, #6fa5ff);
+
+        border-radius: 0 0 15px 15px;
+      }
+
+      .gift-ribbon {
+        position: absolute;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        width: 42px;
+
+        height: 100%;
+
+        background: #e0edff;
+      }
+
+      .gift-box::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        top: 55px;
+
+        width: 100%;
+        height: 35px;
+
+        background: rgba(224, 237, 255, 0.9);
+      }
+
+      .bow {
+        position: absolute;
+        top: -35px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      .bow::before,
+      .bow::after {
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 45px;
+        background: #75abff;
+        top: 0;
+      }
+
+      .bow::before {
+        right: 8px;
+        border-radius: 70% 30% 70% 30%;
+        transform: rotate(-15deg);
+      }
+
+      .bow::after {
+        left: 8px;
+        border-radius: 70% 30% 70% 30%;
+        transform: scaleX(-1) rotate(-15deg);
+      }
+
+      .bow-center {
+        position: absolute;
+        left: 50%;
+        top: 10px;
+        transform: translateX(-50%);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #4c91ef;
+        z-index: 2;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      }
+
+      .gift.open .gift-lid {
+        transform: translateY(-90px) rotate(-8deg);
+      }
+
+      .gift.open {
+        margin-bottom: 120px;
+      }
+
+      .letter {
+        max-width: 750px;
+
+        margin: -20px auto 70px;
+
+        padding: 40px 35px;
+
+        background: #f8fbff;
+
+        border: 2px dashed #9fc2ff;
+
+        border-radius: 25px;
+
+        box-shadow: 0 15px 40px rgba(50, 100, 180, 0.15);
+
+        opacity: 0;
+
+        transform: translateY(30px) scale(0.9);
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        transition: 1s ease;
+      }
+
+      .letter.show {
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+        max-height: 800px;
+      }
+
+      .letter h2 {
+        font-family: Georgia, serif;
+
+        font-size: 35px;
+
+        color: #3b76d1;
+
+        margin-bottom: 20px;
+      }
+
+      .letter p {
+        font-size: 17px;
+
+        line-height: 1.9;
+
+        color: #436593;
+      }
+
+      .heart {
+        position: fixed;
+
+        bottom: -40px;
+
+        pointer-events: none;
+
+        z-index: 100;
+
+        animation: heartRise linear forwards;
+      }
+
+      @keyframes heartRise {
+        to {
+          transform: translateY(-110vh) rotate(360deg);
+
+          opacity: 0;
+        }
+      }
+
+      .confetti {
+        position: fixed;
+
+        top: -30px;
+
+        width: 9px;
+        height: 17px;
+
+        z-index: 200;
+
+        animation: confettiFall 3s linear forwards;
+      }
+
+      @keyframes confettiFall {
+        to {
+          transform: translateY(110vh) rotate(720deg);
+        }
+      }
+
+      footer {
+        padding: 30px;
+
+        text-align: center;
+
+        background: #477dd9;
+
+        color: white;
+
+        font-size: 15px;
+      }
+
+      @media (max-width: 700px) {
+        .card {
+          padding: 35px 15px 45px;
+        }
+
+        .cake {
+          transform: scale(0.72);
+
+          transform-origin: bottom center;
+        }
+
+        .cake-area {
+          height: 330px;
+        }
+      }
+
+      @media (max-width: 430px) {}
+        .gift {
+          transform: scale(0.85);
+        }
+        .cake-heart {
+        position: absolute;
+        color: white;
+        font-size: 28px;
+        z-index: 15;
+
+      }
+      .ch1 {
+
+        left: 45px;
+
+        top: 65px;
+
+      }
+      .ch2 {
+
+        left: 150px;
+
+        top: 90px;
+
+      }
+      .ch3 {
+
+        right: 45px;
+
+        top: 65px;
+
+      }
+      .gallery-section {
+        padding: 80px 20px 110px;
+        background: #ffeaf3;
+        text-align: center;
+      }
+
+      .gallery-section .section-title {
+        color: #3976d0;
+        margin-bottom: 10px;
+      }
+
+      .gallery {
+        width: min(1100px, 100%);
+        margin: 40px auto 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 28px;
+        align-items: start;
+      }
+
+      .photo {
+        width: 100%;
+        max-width: 330px;
+        margin: 0 auto;
+        padding: 12px 12px 18px;
+        background: #ffffff;
+        border-radius: 18px;
+        box-shadow: 0 12px 30px rgba(150, 50, 100, 0.16);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+
+      .photo:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 18px 38px rgba(150, 50, 100, 0.22);
+      }
+
+      .photo img {
+        display: block;
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 12px;
+        background: #f4f4f4;
+      }
+
+      .photo span {
+        display: block;
+        padding: 15px 8px 2px;
+        color: #3976d0;
+        font-family: Georgia, serif;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      @media (max-width: 700px) {
+        .gallery {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 18px;
+        }
+
+        .photo {
+          padding: 9px 9px 15px;
+          border-radius: 14px;
+        }
+
+        .photo img {
+          height: 260px;
+          border-radius: 9px;
+        }
+
+        .photo span {
+          font-size: 16px;
+          padding-top: 12px;
+        }
+      }
+
+      @media (max-width: 430px) {
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+
+        .photo {
+          max-width: 320px;
+        }
+
+        .photo img {
+          height: 360px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Elemen Audio untuk Musik -->
+    <audio id="birthdayMusic" loop>
+      <source src="lagu.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div id="loading">
+      <div class="loading-heart">💙</div>
+
+      <div class="loading-title">Happy Your day sayang...</div>
+
+      <div class="loading-subtitle">Sebentar yaa... ada kejutan 💙</div>
+
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+
+    <section class="main">
+      <div class="card">
+        <div class="small-title">✨ A SPECIAL DAY ✨</div>
+
+        <h1>Happy Birthday Gantengku!</h1>
+
+        <div class="subtitle">Untuk seseorang yang sangat spesial 💙</div>
+        <div class="cake-area">
+          <div class="cake">
+            <div class="cake-plate"></div>
+            <div class="cake-body">
+              <div class="cream c1">​</div>
+              <div class="cream c2">​</div>
+              <div class="cream c3"></div>
+              <div class="cream c4"></div>
+              <div class="cream c5">​</div>
+
+              <span class="cake-heart ch1">🫧</span>
+
+
+
+              <span class="cake-heart ch2">🫧</span>
+
+
+
+              <span class="cake-heart ch3">🫧</span>
+            </div>
+
+            <div class="cake-top"></div>
+
+            <div class="strawberry s1">🫐</div>
+
+            <div class="strawberry s2">🫐</div>
+
+            <div class="strawberry s3">🫐</div>
+
+            <div class="strawberry s4">🫐</div>
+
+            <div class="candle">
+              <div class="flame"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button id="blowButton">💙 Tiup Lilinnya</button>
+          <button id="musicButton" class="music-button">🎵 Putar Musik</button>
+        </div>
+
+        <div id="message" class="message">
+          🎉 Selamat ulang tahun gantengku 💙 🎉
+        </div>
+      </div>
+    </section>
+
+    <section class="gift-section">
+      <h2 class="section-title">🎁 Kejutan untukmu</h2>
+
+      <p class="section-subtitle">Coba klik kadonya... 💙</p>
+      <div class="gift" id="gift">
+        <div class="gift-lid"></div>
+
+        <div class="bow">
+          <div class="bow-center"></div>
+        </div>
+
+        <div class="gift-box">
+          <div class="gift-ribbon"></div>
+        </div>
+      </div>
+
+      <div class="letter" id="letter">
+        <h2>💌 Untuk Kamu</h2>
+
+        <p>
+          Your Day Love! 💙
+          <br/>Hai sayang.
+Selamat ulang tahun yg ke 23 tahun ya.
+Stay healthy and happy ok!
+Semangat terus, semoga apapun niat baik kamu dan keinginanmu terwujud ya.. 
+disini aku juga selalu berdoa untuk kamu yang terbaik.🤍<br/>
+        </p>
+      </div>
+    </section>
+     <section class="gallery-section">
+      <h2 class="section-title">📸 Kenangan Manis</h2>
+
+      <p class="section-subtitle">
+        Beberapa foto untuk mengingat hari-hari indah 💕
+      </p>
+
+      <div class="gallery">
+        <div class="photo">
+          <img src="foto1.jpeg" alt="Foto 1" />
+
+          <span> mini you 💗 </span>
+        </div>
+
+    <footer>💙 Lucu sekali ya kamu sewaktu kecil💙</footer>
+
+    <script>
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.getElementById("loading").classList.add("hide");
+        }, 3200);
+      });
+
+      const blowButton = document.getElementById("blowButton");
+
+      const flame = document.querySelector(".flame");
+
+      const message = document.getElementById("message");
+
+      blowButton.addEventListener("click", function () {
+        flame.style.display = "none";
+        blowButton.innerHTML = "💙 Lilinnya sudah ditiup!";
+        message.classList.add("show");
+        createConfetti();
+
+        for (let i = 0; i < 35; i++) {
+          setTimeout(createHeart, i * 80);
+        }
+      });
+
+      const gift = document.getElementById("gift");
+
+      const letter = document.getElementById("letter");
+
+      gift.addEventListener("click", function () {
+        gift.classList.toggle("open");
+
+        letter.classList.toggle("show");
+
+        if (letter.classList.contains("show")) {
+          setTimeout(function () {
+            letter.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }, 500);
+        }
+      });
+
+      function createHeart() {
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        const list = ["💙", "🩵", "✨", "⭐", "💫", "🤍"];
+
+        heart.innerHTML = list[Math.floor(Math.random() * list.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        heart.style.fontSize = 15 + Math.random() * 25 + "px";
+
+        heart.style.animationDuration = 3 + Math.random() * 4 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function () {
+          heart.remove();
+        }, 7000);
+      }
+
+      function createConfetti() {
+        for (let i = 0; i < 120; i++) {
+          const confetti = document.createElement("div");
+
+          confetti.className = "confetti";
+
+          confetti.style.left = Math.random() * 100 + "vw";
+
+          confetti.style.background = randomColor();
+
+          confetti.style.animationDuration = 2 + Math.random() * 3 + "s";
+
+          confetti.style.animationDelay = Math.random() * 1.5 + "s";
+
+          document.body.appendChild(confetti);
+
+          setTimeout(function () {
+            confetti.remove();
+          }, 6000);
+        }
+      }
+
+      function randomColor() {
+        const colors = [
+          "#4f91ef",
+          "#83b5ff",
+          "#b8d3ff",
+          "#ffffff",
+          "#4387e9",
+          "#c9dfff",
+        ];
+
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      setInterval(function () {
+        if (Math.random() > 0.45) {
+          createHeart();
+        }
+      }, 1400);
+
+      const music = document.getElementById("birthdayMusic");
+      const musicButton = document.getElementById("musicButton");
+
+      musicButton.addEventListener("click", function () {
+        if (music.paused) {
+          music.play();
+          musicButton.innerHTML = "⏸️ Matikan Musik";
+          musicButton.classList.add("playing");
+        } else {
+          music.pause();
+          musicButton.innerHTML = "🎵 Putar Musik";
+          musicButton.classList.remove("playing");
+        }
+      });
+    </script>
+  </body>
+</html>
